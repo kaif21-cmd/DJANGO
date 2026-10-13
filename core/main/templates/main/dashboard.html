@@ -1,0 +1,186 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashly | Dashboard</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f6fc;color:#24213b}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;background:#201b3c;color:white;padding:28px 18px;display:flex;flex-direction:column;flex-shrink:0}
+.logo{font-size:27px;margin:0 10px 42px;color:white}
+.logo span{color:#a996ff}
+.label{font-size:10px;letter-spacing:2px;color:#9992b2;margin:0 12px 15px}
+.nav{display:block;text-decoration:none;color:#c9c4dc;padding:15px 13px;border-radius:10px;margin-bottom:7px;font-size:14px}
+.nav:hover,.nav.active{background:#755cf0;color:white}
+.bottom{margin-top:auto;border-top:1px solid #413956;padding-top:20px;display:flex;align-items:center;gap:10px}
+.avatar{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;background:#c6baff;color:#382a76;font-weight:bold}
+.user{flex:1;min-width:0}
+.user strong,.user small{display:block;overflow-wrap:anywhere}
+.user strong{font-size:12px}
+.user small{font-size:10px;color:#aaa4c3;margin-top:5px}
+.logout{background:transparent;border:1px solid #514968;color:white;border-radius:8px;padding:9px;cursor:pointer}
+.main{flex:1;min-width:0;padding:30px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #e8e7f0;padding-bottom:23px}
+.topbar h2{font-size:23px}
+.muted{color:#9290a5;font-size:12px;margin-top:7px}
+.profile{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:bold}
+.hero{margin:28px 0;background:linear-gradient(115deg,#6250d4,#9b83ff);border-radius:18px;padding:32px;color:white;display:flex;justify-content:space-between;align-items:center;gap:15px;overflow:hidden}
+.hero small{letter-spacing:2px;color:#e4deff;font-weight:bold}
+.hero h1{font-size:30px;margin:15px 0 10px;overflow-wrap:anywhere}
+.hero p{font-size:13px;color:#ece7ff;line-height:1.7}
+.hero-art{font-size:100px;color:#ffffff45}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card,.panel{background:white;border:1px solid #ecebf4;border-radius:15px;padding:22px;box-shadow:0 5px 20px #25204408}
+.card-title{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#858197;font-size:12px}
+.icon{padding:11px;border-radius:10px;background:#eeeaff;color:#755cf0}
+.green-icon{background:#e3f8ed;color:#209967}
+.orange-icon{background:#fff0df;color:#dc9234}
+.card h2{font-size:30px;margin:18px 0 8px}
+.progress{height:5px;background:#eeeaff;border-radius:8px;margin-top:18px;overflow:hidden}
+.progress span{display:block;height:100%;background:#755cf0;border-radius:8px}
+.pg-green{background:#e3f8ed}.pg-green span{background:#29ad76}
+.pg-orange{background:#fff0df}.pg-orange span{background:#e9a247}
+.lower{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:22px}
+.panel h3{font-size:16px}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pill{background:#f0edff;color:#7359e8;padding:9px 12px;border-radius:8px;font-size:11px}
+.chart{height:190px;display:flex;justify-content:space-around;align-items:flex-end;gap:12px;margin-top:24px;border-bottom:1px solid #ecebf4}
+.bar-wrap{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;min-width:0}
+.bar{width:65%;max-width:40px;min-height:12px;background:#dcd4ff;border-radius:7px 7px 0 0;transition:.2s}
+.bar:hover,.bar.selected{background:linear-gradient(#a38eff,#7057e8)}
+.bar-wrap span{font-size:10px;color:#9290a5;padding-bottom:10px}
+.profile-info{display:flex;align-items:center;gap:12px;padding:24px 0}
+.big-avatar{width:50px;height:50px;border-radius:14px;background:#eeeaff;color:#755cf0;display:grid;place-items:center;font-size:22px;font-weight:bold;flex-shrink:0}
+.profile-info h4{overflow-wrap:anywhere}
+.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-top:1px solid #eeeef4;padding:15px 0;font-size:12px}
+.row span{color:#9290a5}
+.row strong{text-align:right;overflow-wrap:anywhere}
+.status{background:#e5f8ed;color:#209967;padding:12px;border-radius:9px;text-align:center;font-size:12px;margin-top:12px}
+footer{text-align:center;color:#a09db0;font-size:11px;margin-top:28px}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.lower{grid-template-columns:1fr}}
+@media(max-width:650px){.layout{flex-direction:column}.sidebar{width:100%;padding:20px 15px}.logo{margin:0 10px 20px}.nav{padding:12px;margin-bottom:3px}.bottom{margin-top:15px}.main{padding:20px 14px}.hero{padding:22px}.hero h1{font-size:23px}.hero-art{font-size:55px}.stats{gap:10px}.card{padding:14px}.card h2{font-size:24px}.card-title{font-size:11px}.icon{padding:8px}.panel{padding:17px}.profile span{overflow-wrap:anywhere}}
+</style>
+</head>
+
+<body>
+<div class="layout">
+
+<aside class="sidebar">
+    <h2 class="logo">✦ Dash<span>ly</span></h2>
+    <p class="label">MAIN MENU</p>
+    <a href="#" class="nav active">▦ &nbsp; Dashboard</a>
+    <a href="#activity" class="nav">◷ &nbsp; Analytics</a>
+    <a href="#projects" class="nav">▣ &nbsp; Projects</a>
+    <a href="#account" class="nav">⚙ &nbsp; My Account</a>
+
+    <div class="bottom">
+        <div class="avatar">{{ request.user.username|first|upper }}</div>
+        <div class="user">
+            <strong>{{ request.user.username }}</strong>
+            <small>Member account</small>
+        </div>
+        <form method="POST" action="{% url 'auth_logout' %}">
+            {% csrf_token %}
+            <button class="logout" type="submit" title="Logout">↗</button>
+        </form>
+    </div>
+</aside>
+
+<main class="main">
+    <header class="topbar">
+        <div>
+            <h2>Dashboard</h2>
+            <p class="muted">Your personal workspace</p>
+        </div>
+        <div class="profile">
+            <div class="avatar">{{ request.user.username|first|upper }}</div>
+            <span>{{ request.user.username }}</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <small>YOUR WORKSPACE</small>
+            <h1>Hello, {{ request.user.username }}! 👋</h1>
+            <p>Welcome back! Let's make today productive.</p>
+        </div>
+        <div class="hero-art">✦</div>
+    </section>
+
+    <section class="stats" id="projects">
+        <div class="card">
+            <div class="card-title">Total Projects <span class="icon">▣</span></div>
+            <h2>12</h2>
+            <p class="muted">Projects in your workspace</p>
+            <div class="progress"><span style="width:70%"></span></div>
+        </div>
+        <div class="card">
+            <div class="card-title">Tasks Completed <span class="icon green-icon">✓</span></div>
+            <h2>28</h2>
+            <p class="muted">Tasks finished this month</p>
+            <div class="progress pg-green"><span style="width:82%"></span></div>
+        </div>
+        <div class="card">
+            <div class="card-title">Pending Tasks <span class="icon orange-icon">◷</span></div>
+            <h2>06</h2>
+            <p class="muted">Tasks waiting for you</p>
+            <div class="progress pg-orange"><span style="width:35%"></span></div>
+        </div>
+    </section>
+
+    <section class="lower">
+        <div class="panel" id="activity">
+            <div class="panel-head">
+                <div>
+                    <h3>Weekly Activity</h3>
+                    <p class="muted">Your productivity overview</p>
+                </div>
+                <span class="pill">This week</span>
+            </div>
+            <div class="chart">
+                <div class="bar-wrap"><div class="bar" style="height:45%"></div><span>Mon</span></div>
+                <div class="bar-wrap"><div class="bar" style="height:70%"></div><span>Tue</span></div>
+                <div class="bar-wrap"><div class="bar" style="height:52%"></div><span>Wed</span></div>
+                <div class="bar-wrap"><div class="bar selected" style="height:90%"></div><span>Thu</span></div>
+                <div class="bar-wrap"><div class="bar" style="height:63%"></div><span>Fri</span></div>
+                <div class="bar-wrap"><div class="bar" style="height:80%"></div><span>Sat</span></div>
+                <div class="bar-wrap"><div class="bar" style="height:38%"></div><span>Sun</span></div>
+            </div>
+        </div>
+
+        <div class="panel" id="account">
+            <h3>Your Profile</h3>
+            <p class="muted">Your account details</p>
+            <div class="profile-info">
+                <div class="big-avatar">{{ request.user.username|first|upper }}</div>
+                <div>
+                    <h4>{{ request.user.username }}</h4>
+                    <p class="muted">Registered member</p>
+                </div>
+            </div>
+            <div class="row">
+                <span>Username</span>
+                <strong>{{ request.user.username }}</strong>
+            </div>
+            <div class="row">
+                <span>Email</span>
+                <strong>{{ request.user.email|default:"Not added" }}</strong>
+            </div>
+            <div class="row">
+                <span>Member since</span>
+                <strong>{{ request.user.date_joined|date:"d M Y" }}</strong>
+            </div>
+            <div class="status">● &nbsp; Account Active</div>
+        </div>
+    </section>
+
+    <footer>© 2026 Dashly · Your space, your progress.</footer>
+</main>
+</div>
+</body>
+</html>

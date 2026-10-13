@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+Registration Successful
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1>Registration Successful </h1>
+
+<h2>Student Details</h2>
+
+<p>
+    Name:
+    {{ name }}
+</p>
+
+<p>
+    Email:
+    {{ email }}
+</p>
+
+<p>
+    Age:
+    {{ age }}
+</p>
+
+<p>
+    Course:
+    {{ course }}
+</p>
+
+<p>
+    Gender:
+    {{ gender }}
+</p>
+
+<p>
+    Address:
+    {{ address }}
+</p>
+
+<h3>Skills</h3>
+
+<ul>
+{% for skill in skills %}
+
+    <li>
+        {{ skill }}
+    </li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

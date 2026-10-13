@@ -1,0 +1,102 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+
+Students Registration
+
+{% endblock %}
+
+<h1> Students Registration Form</h1>
+
+<form methord="POST">
+ {% csrf_token %}
+
+ <label>
+    Full name
+ </label>
+ <br>
+ <input
+ type="text"
+ name="name"
+ placeholder="Enter your name"
+ required
+ >
+<br>
+
+<label>
+    Email
+</label>
+ <br>
+ <input
+ type="email"
+ name="name"
+ placeholder="Enter Your Email"
+ required
+ >
+ 
+ <br>
+ <lable>
+    Age
+ </lable>
+
+ <br>
+ <input
+ type="number"
+ name="age"
+ placeholder="Enter your age"
+ required
+ >
+<br>
+
+<label>
+    course
+</label>
+<br>
+<select name="course">
+    <option value="python"></option>
+</select>
+<select name="course">
+    <option value="SQL"></option>
+</select>
+<br>
+<select name="course">
+    <option value="Django"></option>
+</select>
+<br>
+<label>
+    Gender
+</label>
+<br>
+<input
+type="radio"
+name="gender"
+value="Male"
+required
+>
+Male
+<br>
+<input
+type="radio"
+name="gender"
+value="Female"
+required
+>
+<br>
+<lable>
+    Adress
+</lable>
+<br>
+<textarea
+name="address"
+rows="5"
+cols="40"
+placeholder="Enter your Address"
+required
+></textarea>
+<br>
+<button type="submit">
+    Register
+</button>
+</form>
+
+{% endblock %}

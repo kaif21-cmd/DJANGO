@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Email Sender</title>
+</head>
+<body>
+    <h1>Send Multiple Emails</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>First Recipient:</label>
+        <input type="email" name="email1" required>
+        <br><br>
+
+        <label>Second Recipient:</label>
+        <input type="email" name="email2" required>
+        <br><br>
+
+        <button type="submit">Send Emails</button>
+    </form>
+
+    <p>{{ message }}</p>
+</body>
+</html>

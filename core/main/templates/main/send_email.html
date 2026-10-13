@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Email Sender</title>
+</head>
+<body>
+    <h1>Send Email</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>
+            <label>Recipient Email:</label>
+            <input type="email" name="recipient" required>
+        </p>
+
+        <p>
+            <label>Subject:</label>
+            <input type="text" name="subject" required>
+        </p>
+
+        <p>
+            <label>Message:</label>
+            <textarea name="body" required></textarea>
+        </p>
+
+        <button type="submit">Send Email</button>
+    </form>
+
+    <p>{{ message }}</p>
+</body>
+</html>

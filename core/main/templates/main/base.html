@@ -1,0 +1,91 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+
+    <title>
+        {% block title %}
+        Student Portal
+        {% endblock %}
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="{% static 'main/style.css' %}"
+    >
+
+
+</head>
+
+
+
+
+<body>
+
+
+
+
+    <nav>
+
+
+        <h2>Student Portal</h2>
+
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+
+        <a href="{% url 'about' %}">
+            About
+        </a>
+
+
+        <a href="{% url 'register' %}">
+            Register
+        </a>
+
+
+    </nav>
+
+
+<main> 
+
+
+    <main>
+
+
+        {% block content %}
+
+
+        {% endblock %}
+
+
+    </main>
+
+
+
+
+    <footer>
+
+
+        <p>
+            Student Portal © 2026
+        </p>
+
+
+    </footer>
+
+
+
+
+</body>
+
+
+</html>

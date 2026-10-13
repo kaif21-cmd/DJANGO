@@ -1,0 +1,247 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+
+    <title>Product Details</title>
+
+
+    <style>
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+
+
+            min-height: 100vh;
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .product-card {
+            width: 400px;
+
+
+            background: white;
+
+
+            padding: 35px;
+
+
+            border-radius: 15px;
+
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+
+            text-align: center;
+        }
+
+
+        .product-card h1 {
+            font-size: 26px;
+
+
+            margin-bottom: 25px;
+
+
+            color: #222;
+        }
+
+
+        .product-image {
+            width: 250px;
+            height: 250px;
+
+
+            object-fit: contain;
+
+
+            margin-bottom: 20px;
+
+
+            border-radius: 10px;
+        }
+
+
+        .product-name {
+            font-size: 30px;
+
+
+            color: #007bff;
+
+
+            margin-bottom: 15px;
+        }
+
+
+        .description {
+            font-size: 17px;
+
+
+            color: #666;
+
+
+            margin-bottom: 20px;
+
+
+            line-height: 1.6;
+        }
+
+
+        .price {
+            font-size: 24px;
+
+
+            color: #198754;
+
+
+            font-weight: bold;
+
+
+            margin-bottom: 25px;
+        }
+
+
+        .btn {
+            display: inline-block;
+
+
+            padding: 12px 25px;
+
+
+            background: #007bff;
+
+
+            color: white;
+
+
+            text-decoration: none;
+
+
+            border-radius: 8px;
+
+
+            transition: 0.3s;
+        }
+
+
+        .btn:hover {
+            background: #0056b3;
+
+
+            transform: translateY(-2px);
+        }
+
+
+    </style>
+
+
+</head>
+
+
+
+
+<body>
+
+
+    <div class="product-card">
+
+
+        <h1>
+            Product Details
+        </h1>
+
+
+
+
+        <!-- PRODUCT IMAGE -->
+
+
+        <img
+            src="{% static product.image %}"
+            alt="{{ product.name }}"
+            class="product-image"
+        >
+
+
+
+
+        <!-- PRODUCT NAME -->
+
+
+        <h2 class="product-name">
+
+
+            {{ product.name }}
+
+
+        </h2>
+
+
+
+
+        <!-- PRODUCT DESCRIPTION -->
+
+
+        <p class="description">
+
+
+            {{ product.description }}
+
+
+        </p>
+
+
+
+
+        <!-- PRODUCT PRICE -->
+
+
+        <h3 class="price">
+
+
+            ₹{{ product.price }}
+
+
+        </h3>
+
+
+
+
+        <!-- BACK BUTTON -->
+
+
+        <a href="{% url 'home' %}" class="btn">
+
+
+            Back to Home
+
+
+        </a>
+
+
+    </div>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,122 @@
+[
+    {
+        "id": 3,
+        "name": "Rahul",
+        "email": "rahul@gmail.com",
+        "age": "-35",
+        "course": "Data Science",
+        "gender": "Male",
+        "skills": "Python, NumPy, Pandas,kerass",
+        "address": "Gurgaon,india"
+    },
+    {
+        "id": 4,
+        "name": "Priya",
+        "email": "priya@gmail.com",
+        "age": 21,
+        "course": "AI/ML",
+        "gender": "Female",
+        "skills": "Python, Machine Learning",
+        "address": "Mumbai"
+    },
+    {
+        "id": 5,
+        "name": "Arjun",
+        "email": "arjun@gmail.com",
+        "age": 25,
+        "course": "Django",
+        "gender": "Male",
+        "skills": "Python, Django, REST API",
+        "address": "Bangalore"
+    },
+    {
+        "id": 6,
+        "name": "Sneha",
+        "email": "sneha@gmail.com",
+        "age": 22,
+        "course": "Data Science",
+        "gender": "Female",
+        "skills": "Python, Pandas, SQL",
+        "address": "Pune"
+    },
+    {
+        "id": 7,
+        "name": "Rohan",
+        "email": "rohan@gmail.com",
+        "age": 23,
+        "course": "Web Development",
+        "gender": "Male",
+        "skills": "HTML, CSS, JavaScript",
+        "address": "Delhi"
+    },
+    {
+        "id": 8,
+        "name": "Neha",
+        "email": "neha@gmail.com",
+        "age": 24,
+        "course": "Python",
+        "gender": "Female",
+        "skills": "Python, Flask, SQL",
+        "address": "Jaipur"
+    },
+    {
+        "id": 9,
+        "name": "Vikas",
+        "email": "vikas@gmail.com",
+        "age": 26,
+        "course": "Django",
+        "gender": "Male",
+        "skills": "Python, Django, PostgreSQL",
+        "address": "Lucknow"
+    },
+    {
+        "id": 10,
+        "name": "Anjali",
+        "email": "anjali@gmail.com",
+        "age": 21,
+        "course": "AI/ML",
+        "gender": "Female",
+        "skills": "Python, NumPy, Scikit-learn",
+        "address": "Chandigarh"
+    },
+    {
+        "id": 11,
+        "name": "Mohit",
+        "email": "mohit@gmail.com",
+        "age": 24,
+        "course": "Data Science",
+        "gender": "Male",
+        "skills": "Python, Pandas, Matplotlib",
+        "address": "Agra"
+    },
+    {
+        "id": 12,
+        "name": "Simran",
+        "email": "simran@gmail.com",
+        "age": 23,
+        "course": "Web Development",
+        "gender": "Female",
+        "skills": "HTML, CSS, JavaScript, React",
+        "address": "Kolkata"
+    },
+    {
+        "id": 13,
+        "name": "kaif",
+        "email": "kaif@gmail.com",
+        "age": "23",
+        "course": "django",
+        "gender": "Male",
+        "skills": "html css ",
+        "address": "cmjzjxncjn"
+    },
+    {
+        "id": 14,
+        "name": "student80",
+        "email": "students80@gail.com",
+        "age": "24",
+        "course": "python",
+        "gender": "female",
+        "skills": "python sql",
+        "address": "noida"
+    }
+]
